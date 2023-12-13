@@ -1,0 +1,27 @@
+.cardDisplay{
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     width: 100%;
+     justify-content: center;
+     align-items: center;
+     gap: 2%;
+     @media (max-width:768px) {
+        flex-direction: column;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+}
+
+.card{
+    background-color: brown;
+    width: 14.6667%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    @media (max-width:768px) {
+        width: 100%;
+    }
+}

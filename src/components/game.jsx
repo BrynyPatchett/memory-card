@@ -5,29 +5,28 @@ import "./styles/game.css"
 
 function Game({currentScore, setCurrentScore, highScore, setHighScore}){
 
-    const [apiCall, setApiCall] = useState('');
+    //will be cardImages from API 
+    const [imagesAPI, setImagesAPI] = useState('');
 
     //load card info form API on mount
     useEffect(()=>{
 
         const fetchData = async ()=>{
-
-            function sleep(ms){
-                return new Promise(resolve=>setTimeout(() => resolve("done!"),ms))
-            }
-            const result = await sleep(1000);
-            setApiCall(result)
-            return result;
+            //giphy was not loggin in at time using placeholder API key
+             const response = await fetch("https://api.giphy.com/v1/gifs/search?api_key=bb2006d9d3454578be1a99cfad65913d&q=flanders&limit=12",{mode:'cors'});
+             const result = await response.json()
+             console.log(result);
+             const imageArray = result.data.map((elem,index) => ({id:index,src:elem.images.original.url}))
+             setImagesAPI(imageArray);
+             console.log(imageArray);
         }
        
-        const result =  fetchData().catch(console.error);
-        console.log(result)
+        fetchData().catch(console.error);
         
-
     },[])
 
     return(<div className="game">
-    {apiCall ?  <CardDisplay /> : <Loading/>}
+    {imagesAPI ?  <CardDisplay currentScore={currentScore} setCurrentScore={setCurrentScore} highScore={highScore} setHighScore={setHighScore} images={imagesAPI}/> : <Loading/>}
     </div>)
 }
 

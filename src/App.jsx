@@ -5,7 +5,7 @@ import './App.css'
 
 
 function App() {
-  const [currentScore,setCurrentScore] = useState(11);
+  const [currentScore,setCurrentScore] = useState(0);
   const [highScore,setHighScore] = useState(0);
 
   return (

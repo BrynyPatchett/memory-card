@@ -80,23 +80,73 @@
   content: "";
   position: absolute;
   background-image: url("/bubbles.png");
+  background-size:contain;
   height: 98%;
   width: 100%;
   top:100%;
   animation: bubbles 4s;
   animation-iteration-count:1;
   z-index: 2;
-
-
+  opacity: 0;
+  visibility: hidden;
 }
 
-@keyframes bubbles {
+
+@keyframes bubbles{
   0% {
+
     top: 100%;
-   
+    opacity: 0;
+    visibility: hidden
   } 
+  1% {
+    top: 100%;
+    opacity: 1;
+    visibility: visible
+  } 
+  99% {
+    top: -100%;
+    opacity: 1;
+    
+ }
   100% {
-     top: -200%;
-     
+     top: -100%;
+     opacity: 0;
+    
+  }
+}
+
+
+@keyframes bubblesMobile {
+  0% {
+    background-repeat: no-repeat;
+    top: 100%;
+    opacity: 0;
+    visibility: hidden
+  } 
+  1% {
+    background-repeat: no-repeat;
+    top: 100%;
+    opacity: 1;
+    visibility: visible
+  } 
+  99% {
+    background-repeat: no-repeat;
+    top: -100%;
+    opacity: 1;
+    
+ }
+  100% {
+    background-repeat: no-repeat;
+     top: -100%;
+     opacity: 0;
+  
+  }
+}
+
+
+@media (max-width:768px) {
+  .win::after{
+    animation: bubblesMobile 4s;
   }
 }

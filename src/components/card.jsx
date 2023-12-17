@@ -3,7 +3,6 @@ function Card({cardData,imageSuffle,id,cardClick}){
     function handleCardClick(){
         cardClick(id);
         imageSuffle();
-        console.log(cardData);
     }
 
     return (

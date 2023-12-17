@@ -15,12 +15,11 @@ function CardDisplay({currentScore,setCurrentScore, highScore ,setHighScore,imag
     }
 
     function cardClick(id){
-        console.log(clickedItems);
-        console.log(clickedItems.length);
+        document.body.classList.remove("win");
         if(clickedItems[id]!==0){
             setCurrentScore(0);
             setClickedItems(Array(12).fill(0))
-            console.log("duplicted click!,reset game");
+        
             return;
         }
         setCurrentScore(currentScore + 1);
@@ -29,7 +28,11 @@ function CardDisplay({currentScore,setCurrentScore, highScore ,setHighScore,imag
         }
         //Check +1 as currentScore is not updated till next render
         if(currentScore + 1 === clickedItems.length){
-            console.log("You won :)")
+            setCurrentScore(0);
+            setClickedItems(Array(12).fill(0))
+            //play win animation
+           document.body.classList.add("win");
+           return;
         }
         const updatedArray = clickedItems.map((x,i)=>{
             if(i === id){

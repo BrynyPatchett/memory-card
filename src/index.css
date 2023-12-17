@@ -1,11 +1,17 @@
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: sponge,Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+
+@font-face {
+  font-family: 'sponge';
+  src:local('sponge'),url(./fonts/SpongeboyRegular-gx2n6.otf) format('opentype');
 }
 
 a {
@@ -20,6 +26,12 @@ a:hover {
 body {
   margin: 0;
   display: flex;
+  background-image: url(/background.jpg);
+  overflow: hidden;
+  @media (max-width: 768px) {
+    overflow: auto;
+  }
+  
 }
 
 h1 {

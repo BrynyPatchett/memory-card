@@ -13,12 +13,12 @@ function Game({currentScore, setCurrentScore, highScore, setHighScore}){
 
         const fetchData = async ()=>{
             //giphy was not loggin in at time using placeholder API key
-             const response = await fetch("https://api.giphy.com/v1/gifs/search?api_key=bb2006d9d3454578be1a99cfad65913d&q=flanders&limit=12",{mode:'cors'});
+             const response = await fetch("https://api.giphy.com/v1/gifs/search?api_key=bb2006d9d3454578be1a99cfad65913d&q=spongebob&limit=12",{mode:'cors'});
              const result = await response.json()
-             console.log(result);
+            
              const imageArray = result.data.map((elem,index) => ({id:index,src:elem.images.original.url}))
              setImagesAPI(imageArray);
-             console.log(imageArray);
+             
         }
        
         fetchData().catch(console.error);

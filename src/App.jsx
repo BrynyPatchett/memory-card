@@ -11,10 +11,11 @@ function App() {
   return (
     <>
       <div className='header'>
-        <div><h1>Memory Cards</h1></div>
+        <div className='title'><div className='displayer'></div><h1>Memory Cards</h1></div>
         <ScoreDisplay currentScore={currentScore} highScore={highScore} className={"scoreDisplay"} />
       </div>
       <Game currentScore={currentScore} setCurrentScore={setCurrentScore} highScore={highScore} setHighScore={setHighScore}/>
+      <div className='effect'></div>
     </>
   )
 }

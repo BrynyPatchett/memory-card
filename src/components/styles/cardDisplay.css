@@ -15,7 +15,6 @@
 }
 
 .card{
-    background-color: brown;
     width: 14.6667%;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -27,12 +26,12 @@
 }
 
 .cardImage{
+    border-radius: 10px;
     max-width: 200px;
     width: 200px;
     height: 200px;
     max-height: 200px;
     text-align: center;
-    background-color: white;
     @media (max-width:768px) {
     }
 }

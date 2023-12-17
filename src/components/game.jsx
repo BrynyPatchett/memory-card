@@ -15,8 +15,8 @@ function Game({currentScore, setCurrentScore, highScore, setHighScore}){
             //giphy was not loggin in at time using placeholder API key
              const response = await fetch("https://api.giphy.com/v1/gifs/search?api_key=bb2006d9d3454578be1a99cfad65913d&q=spongebob&limit=12",{mode:'cors'});
              const result = await response.json()
-            
-             const imageArray = result.data.map((elem,index) => ({id:index,src:elem.images.original.url}))
+            console.log(result);
+             const imageArray = result.data.map((elem,index) => ({id:index,src:elem.images.downsized.url}))
              setImagesAPI(imageArray);
              
         }
